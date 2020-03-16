@@ -5,6 +5,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.shunfweather.android.gson.Forecast;
 import com.shunfweather.android.gson.Weather;
+import com.shunfweather.android.service.AutoUpdateService;
 import com.shunfweather.android.util.HttpUtil;
 import com.shunfweather.android.util.Utility;
 
@@ -219,6 +221,8 @@ e.printStackTrace();
             carWashText.setText(carWash);
             sportText.setText(sport);
             weatherLayout.setVisibility(View.VISIBLE);
+            Intent intent=new Intent(this, AutoUpdateService.class);
+            startService(intent);
 
         }
     }
